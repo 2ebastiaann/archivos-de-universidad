@@ -31,8 +31,9 @@ class ExtintoresFactory extends Factory
             'capacidad' => $this->faker->numberBetween(1, 10),
             'fechafabricacion' => $this->faker->date(),
             'estado' => $this->faker->randomElement(['nuevo', 'usado', 'reparado']),
-            'idtipo' => $this->faker->numberBetween(1, 5), // Generar un número aleatorio entre 1 y 5
-            'idubicacion' => $this->faker->numberBetween(1, 10), 
+            'idtipo' => Tipos::inRandomOrder()->value('id'),
+            'idubicacion' => Ubicaciones::inRandomOrder()->value('id'),
+            'idproveedor' => Proveedores::inRandomOrder()->value('id'),
         ];
     }
 }
